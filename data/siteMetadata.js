@@ -3,7 +3,7 @@ const siteMetadata = {
   title: "Nabiel's Blog",
   author: 'Nabiel Ahammed',
   headerTitle: "Nabiel's Blog",
-  description: 'Welcome to my blog! I write about software development, programming, books, music and more.',
+  description: 'Hi! I am Nabiel Ahammed. Welcome to my blog! I share my thoughts on software development, programming, books, music and more.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
