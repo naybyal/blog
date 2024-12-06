@@ -16,7 +16,7 @@ const siteMetadata = {
   twitter: 'https://twitter.com/codereagle13',
   // facebook: 'https://facebook.com',
   // youtube: 'https://youtube.com',
-  linkedin: 'https://in.linkedin.com/nabiel-ahammed',
+  linkedin: 'https://linkedin.com/in/nabiel-ahammed',
   // threads: 'https://www.threads.net',
   instagram: 'https://www.instagram.com/naybyal',
   locale: 'en-US',
