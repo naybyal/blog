@@ -6,8 +6,8 @@ const siteMetadata = {
   description: 'Hi! I am Nabiel Ahammed. Welcome to my blog! I share my thoughts on software development, programming, books, music and more.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteUrl: 'https://nabielwries.co',
+  siteRepo: 'https://github.com/naybyal/blog',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/avatar.png',
   // mastodon: 'https://mastodon.social/@mastodonuser',
