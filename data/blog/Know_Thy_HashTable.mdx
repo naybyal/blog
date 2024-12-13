@@ -11,27 +11,32 @@ It's Friday the 13th, and I have decided to seriously explore data structures an
 
 I have decided to tackle arrays and strings first, using Java as the programming language. This will not be basic, as I already know the fundamentals of arrays and strings. This time, I want to take things up a notch by solving more problems to deepen my understanding and improve my implementation of concepts like StringBuilder, HashMap, and others.
 
-Well, I would like to start with hash tables.
+Whenever we need a data structure to store key-value pairs for extremely efficient lookups, the first thing that comes to my mind is a **hash map**.
 
-"Wait a minute, Nabiel. You said you were going to start with hash tables!"
+*"Wait a minute, Nabiel. You said you were going to start with hash tables!"*
 
-Allow me to explain. From what I've understood, HashTable and HashMap in Java differ in the following ways:
+Allow me to explain. From what I've understood, **HashTable** and **HashMap** in Java differ in the following ways:
 
 1. **HashTable is synchronized**, which makes it better suited for multithreaded applications.
 
-**What do you mean by "synchronized?"**
+>    #### What do you mean by "synchronized"?  
+>    -  By "synchronized", I mean that multiple threads can access and modify the data structure simultaneously without causing data corruption.
 
-By 'synchronized', I mean that multiple threads can access and modify the data structure simultaneously without causing data corruption.
 
-2. **HashTable does not allow null keys or null values**, whereas HashMap allows one null key and multiple null values.
+2. **HashTable does not allow null keys or null values**, whereas **HashMap** allows *one null key* and *multiple null values.*  
 
-Now, back to why I wrote 'HashMap' instead of 'HashTable'. When you first start programming in Java, the code you write is typically non-concurrent (single-threaded). Also, HashMap was introduced after Java 1.2, and since I program in Java 17, I’m so accustomed to using HashMap over HashTable that I don't always consider the performance implications or the distinct differences between the two data structures.
+
+Now, back to why I mentioned **'HashMap'** instead of **'HashTable'** :  
+
+When you first start programming in Java, the code you write is typically non-concurrent (single-threaded). Also, **HashMap** was introduced after *Java 1.2*. Since I started programming in *Java 17*, I’m so accustomed to using **HashMap** over **HashTable** that I don't always consider the performance implications or the distinct differences between the two data structures.
+
+---
 
 ## Implementating a Simple Hash Table 
 
 Even though there are a number of ways to implement a hash table, the simplest implementation is to use an array of linked lists and a hash code function.
 
-### Key Steps to Insert a Key-Value Pair
+### Key Steps 
 
 1. **Compute the hash code for the key**:
    - The key could be an `int` or `long` (both are number types in Java).
@@ -45,7 +50,7 @@ Even though there are a number of ways to implement a hash table, the simplest i
    - At this index, we use a linked list to store key-value pairs. This helps handle collisions, where either two keys have the same hash code or two different hash codes map to the same index.
    - By using a linked list, we can add new key-value pairs to the same index without losing the previous ones.
 
-A good implementation of a hash table that keeps the collisions to a minimum has a lookup time of **O(1)**. In the worst-case scenario, i.e., the number of collisions is very high, the lookup time is **O(N)**, where **N** is the number of keys.
+A good implementation of a hash table that keeps the collisions to a minimum has a lookup time of **O(1)**. In the worst-case scenario, i.e., when the number of collisions is very high, the lookup time is **O(N)**, where **N** is the number of keys.
 
 ### Code 
 
@@ -107,7 +112,7 @@ class HashTable {
 
 ##  Implementating a Balanced Binary Search Tree (BST) Hash Table
 
-The alternate method to implement a hash table is to implement it as a balanced binary search tree, where the lookup time is **O(log N)**.
+The alternate method is to implement a balanced BST, where the lookup time is **O(log N)**.
 
 ### Advantages of a BST Implementation
 
@@ -177,4 +182,4 @@ class BSTHashTable {
 
 ---
 
-Happy coding! May your data structures be robust and efficient. :)
+I'll be back with dynamic arrays in the next one. *Stay tuned!*
