@@ -3,7 +3,7 @@ const siteMetadata = {
   title: "Nabiel's Blog",
   author: 'Nabiel Ahammed',
   headerTitle: "Nabiel's Blog",
-  description: 'Hey, I’m Nabiel Ahammed. This is my blog—a place where I share what I am into: coding, building cool stuff, books, music, and anything else that makes life interesting. Pour yourself a strong black coffee and dive in.',
+  description: 'Hey, I’m Nabiel Ahammed. Welcome to my blog—a space where I talk about the things that matter to me: coding, building cool projects, books, music, and anything else that keeps life sharp. Grab a strong black coffee, get comfortable, and enjoy the read.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://nabielwries.co',
