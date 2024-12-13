@@ -3,7 +3,7 @@ const siteMetadata = {
   title: "Nabiel's Blog",
   author: 'Nabiel Ahammed',
   headerTitle: "Nabiel's Blog",
-  description: 'Hi, I’m Nabiel Ahammed. Welcome to my blog! This is where I talk about all the things I love—coding, building cool stuff, books, music, and whatever else is on my mind. It’s pretty chill here, so grab a coffee (or chai!) and hang out.',
+  description: 'Hey, I’m Nabiel Ahammed. This is my blog—a place where I share what I am into: coding, building cool stuff, books, music, and anything else that makes life interesting. Pour yourself a strong black coffee and dive in.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://nabielwries.co',
@@ -17,7 +17,7 @@ const siteMetadata = {
   // facebook: 'https://facebook.com',
   // youtube: 'https://youtube.com',
   linkedin: 'https://linkedin.com/in/nabiel-ahammed',
-  // threads: 'https://www.threads.net',
+  // threads: 'https://www.threads.net'
   instagram: 'https://www.instagram.com/naybyal',
   locale: 'en-US',
   analytics: {
