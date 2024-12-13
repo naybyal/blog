@@ -1,0 +1,180 @@
+---
+title: Know Thy Hash Tables
+summary: "Exploring the fundamentals and advanced implementations of Hash Tables using Java."
+date: '2024-12-13'
+draft: false
+tags: ['java', 'data structures', 'hash tables', 'performance']
+authors: ['Nabiel Ahammed']
+layout: PostSimple
+---
+It's Friday the 13th, and I have decided to seriously explore data structures and algorithms, starting today. I am not driven by the desire to get placed in big tech but rather, I am on a pursuit to become a better developer who understands the internals of operating systems, databases, and everything low-level.
+
+I have decided to tackle arrays and strings first, using Java as the programming language. This will not be basic, as I already know the fundamentals of arrays and strings. This time, I want to take things up a notch by solving more problems to deepen my understanding and improve my implementation of concepts like StringBuilder, HashMap, and others.
+
+Well, I would like to start with hash tables.
+
+"Wait a minute, Nabiel. You said you were going to start with hash tables!"
+
+Allow me to explain. From what I've understood, HashTable and HashMap in Java differ in the following ways:
+
+1. **HashTable is synchronized**, which makes it better suited for multithreaded applications.
+
+**What do you mean by "synchronized?"**
+
+By 'synchronized', I mean that multiple threads can access and modify the data structure simultaneously without causing data corruption.
+
+2. **HashTable does not allow null keys or null values**, whereas HashMap allows one null key and multiple null values.
+
+Now, back to why I wrote 'HashMap' instead of 'HashTable'. When you first start programming in Java, the code you write is typically non-concurrent (single-threaded). Also, HashMap was introduced after Java 1.2, and since I program in Java 17, I’m so accustomed to using HashMap over HashTable that I don't always consider the performance implications or the distinct differences between the two data structures.
+
+## Implementating a Simple Hash Table 
+
+Even though there are a number of ways to implement a hash table, the simplest implementation is to use an array of linked lists and a hash code function.
+
+### Key Steps to Insert a Key-Value Pair
+
+1. **Compute the hash code for the key**:
+   - The key could be an `int` or `long` (both are number types in Java).
+   - It's important to note that different keys can have the same hash code. This happens because, while there are many possible keys, the number of hash codes is limited (we use `int` values for hash codes).
+
+2. **Map the hash code to an index in the array**:
+   - Use a formula like `hash(key) % array_length` to get the index where the key-value pair should be stored.
+   - Two different keys could end up mapping to the same index, which is called a collision.
+
+3. **Store the key-value pair at that index**:
+   - At this index, we use a linked list to store key-value pairs. This helps handle collisions, where either two keys have the same hash code or two different hash codes map to the same index.
+   - By using a linked list, we can add new key-value pairs to the same index without losing the previous ones.
+
+A good implementation of a hash table that keeps the collisions to a minimum has a lookup time of **O(1)**. In the worst-case scenario, i.e., the number of collisions is very high, the lookup time is **O(N)**, where **N** is the number of keys.
+
+### Code 
+
+```java
+class KeyValuePair {
+    int key;
+    String value;
+    KeyValuePair next;
+
+    KeyValuePair(int key, String value) {
+        this.key = key;
+        this.value = value;
+    }
+}
+
+class HashTable {
+    private static final int SIZE = 10;
+    private KeyValuePair[] table;
+
+    public HashTable() {
+        table = new KeyValuePair[SIZE];
+    }
+
+    private int hash(int key) {
+        return key % SIZE;
+    }
+
+    public void insert(int key, String value) {
+        int index = hash(key);
+        KeyValuePair newPair = new KeyValuePair(key, value);
+        if (table[index] == null) {
+            table[index] = newPair;
+        } else {
+            KeyValuePair current = table[index];
+            while (current.next != null && current.key != key) {
+                current = current.next;
+            }
+            if (current.key == key) {
+                current.value = value; // Update value
+            } else {
+                current.next = newPair;
+            }
+        }
+    }
+
+    public String get(int key) {
+        int index = hash(key);
+        KeyValuePair current = table[index];
+        while (current != null) {
+            if (current.key == key) {
+                return current.value;
+            }
+            current = current.next;
+        }
+        return null;
+    }
+}
+```
+
+##  Implementating a Balanced Binary Search Tree (BST) Hash Table
+
+The alternate method to implement a hash table is to implement it as a balanced binary search tree, where the lookup time is **O(log N)**.
+
+### Advantages of a BST Implementation
+
+1. **Less space usage**: As we no longer allocate a large array.
+2. **Key ordering**: We can iterate through the keys in order, which can be useful at times.
+
+### Code 
+
+```java
+class BSTNode {
+    int key;
+    String value;
+    BSTNode left, right;
+
+    BSTNode(int key, String value) {
+        this.key = key;
+        this.value = value;
+        left = right = null;
+    }
+}
+
+class BSTHashTable {
+    private BSTNode root;
+
+    public void insert(int key, String value) {
+        root = insertRec(root, key, value);
+    }
+
+    private BSTNode insertRec(BSTNode node, int key, String value) {
+        if (node == null) {
+            return new BSTNode(key, value);
+        }
+        if (key < node.key) {
+            node.left = insertRec(node.left, key, value);
+        } else if (key > node.key) {
+            node.right = insertRec(node.right, key, value);
+        } else {
+            node.value = value; // Update value
+        }
+        return node;
+    }
+
+    public String get(int key) {
+        return getRec(root, key);
+    }
+
+    private String getRec(BSTNode node, int key) {
+        if (node == null) {
+            return null;
+        }
+        if (key < node.key) {
+            return getRec(node.left, key);
+        } else if (key > node.key) {
+            return getRec(node.right, key);
+        } else {
+            return node.value;
+        }
+    }
+}
+```
+
+## References
+
+- [Cracking the Coding Interview](https://www.crackingthecodinginterview.com/)
+- [Official Java Documentation](https://docs.oracle.com/en/java/)
+
+
+---
+
+Happy coding! May your data structures be robust and efficient. :)
