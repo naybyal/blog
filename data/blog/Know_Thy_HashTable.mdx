@@ -15,20 +15,20 @@ Whenever we need a data structure to store key-value pairs for extremely efficie
 
 *"Wait a minute, Nabiel. You said you were going to start with hash tables!"*
 
-Allow me to explain. From what I've understood, **HashTable** and **HashMap** in Java differ in the following ways:
+Allow me to explain. From what I've understood, **Hashtable** and **HashMap** in Java differ in the following ways:
 
-1. **HashTable is synchronized**, which makes it better suited for multithreaded applications.
+1. **Hashtable is synchronized**, which makes it better suited for multithreaded applications.
 
 >    #### What do you mean by "synchronized"?  
 >    -  By "synchronized", I mean that multiple threads can access and modify the data structure simultaneously without causing data corruption.
 
 
-2. **HashTable does not allow null keys or null values**, whereas **HashMap** allows *one null key* and *multiple null values.*  
+2. **Hashtable does not allow null keys or null values**, whereas **HashMap** allows *one null key* and *multiple null values.*  
 
 
-Now, back to why I mentioned **'HashMap'** instead of **'HashTable'** :  
+Now, back to why I mentioned **'HashMap'** instead of **'Hashtable'** :  
 
-When you first start programming in Java, the code you write is typically non-concurrent (single-threaded). Also, **HashMap** was introduced after *Java 1.2*. Since I started programming in *Java 17*, I’m so accustomed to using **HashMap** over **HashTable** that I don't always consider the performance implications or the distinct differences between the two data structures.
+When you first start programming in Java, the code you write is typically non-concurrent (single-threaded). Also, **HashMap** was introduced after *Java 1.2*. Since I started programming in *Java 17*, I’m so accustomed to using **HashMap** over **Hashtable class** that I don't always consider the performance implications or the distinct differences between the two data structures.
 
 ---
 
