@@ -187,6 +187,44 @@ When working with thread-safe applications, **ConcurrentHashMap** ensures effici
 ## Problems
 
 ### 1. [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+Imagine you are given a list of numbers, and your task is to find out if any number appears more than once in the list. For example:
+
+- If the list is `[1, 2, 3, 4]`, there are no duplicates, so the answer is **false**.
+- If the list is `[1, 2, 3, 2]`, the number `2` appears twice, so the answer is **true**.
+
+To solve this problem, we use a **HashSet**, which is like a magical bag that only holds unique items. If you try to add something that is already in the bag, it lets you know.
+
+Here's how the solution works step by step:
+
+1. **Create an empty HashSet**: Think of it as an empty bag to store the numbers we have seen so far.
+2. **Go through the list of numbers one by one**:
+   - If the current number is already in the bag, it means we found a duplicate, so we return **true**.
+   - If the number is not in the bag, we add it to the bag and keep checking the rest of the list.
+3. If we finish checking all the numbers and don’t find any duplicates, we return **false**.
+
+### Why Use a HashSet?
+
+- A **HashSet** is perfect for this problem because it is designed to store unique items only.
+- Checking if something is in the set (`contains()`) and adding a new item (`add()`) are both very fast.
+
+### Real-World Analogy
+
+Imagine you’re keeping track of names at a party. As each guest arrives, you check your list (the HashSet). If their name is already on the list, you know they’ve been here before (duplicate). If not, you add their name to the list and continue checking the next guest.
+
+```java
+    public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> seen = new HashSet();
+        for (int i = 0; i < nums.length; i++) {
+            if (seen.contains(nums[i]))
+                return true;
+            else
+                seen.add(nums[i]);
+        }
+
+        return false;
+    }
+```
+
 
 ## References
 
