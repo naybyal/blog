@@ -6,7 +6,7 @@ const siteMetadata = {
   description: 'Hey, I’m Nabiel Ahammed. Welcome to my blog—a space where I talk about the things that matter to me: coding, building cool projects, books, music, and anything else that keeps life sharp. Grab a strong black coffee, get comfortable, and enjoy the read.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://nabielwries.co',
+  siteUrl: 'https://blog.nabielahammed.com',
   siteRepo: 'https://github.com/naybyal/blog',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/avatar.png',
