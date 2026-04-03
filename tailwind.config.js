@@ -22,21 +22,34 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
+        sans: ['var(--font-jetbrains-mono)', ...fontFamily.mono],
+        mono: ['var(--font-jetbrains-mono)', ...fontFamily.mono],
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-out forwards',
       },
       colors: {
-        primary: colors.cyan,
-        gray: colors.slate,
+        primary: colors.neutral,
+        gray: colors.neutral,
       },
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
             a: {
-              color: theme('colors.primary.500'),
+              color: theme('colors.neutral.900'),
+              textDecoration: 'underline',
+              fontWeight: '500',
+              transition: 'color 0.3s ease',
               '&:hover': {
-                color: `${theme('colors.primary.600')}`,
+                color: theme('colors.neutral.500'),
               },
-              code: { color: theme('colors.primary.400') },
+              code: { color: theme('colors.neutral.900') },
             },
             'h1,h2': {
               fontWeight: '700',
@@ -46,18 +59,21 @@ module.exports = {
               fontWeight: '600',
             },
             code: {
-              color: theme('colors.indigo.500'),
+              color: theme('colors.neutral.600'),
             },
           },
         },
         invert: {
           css: {
             a: {
-              color: theme('colors.primary.500'),
+              color: theme('colors.neutral.100'),
+              textDecoration: 'underline',
+              fontWeight: '500',
+              transition: 'color 0.3s ease',
               '&:hover': {
-                color: `${theme('colors.primary.400')}`,
+                color: theme('colors.neutral.400'),
               },
-              code: { color: theme('colors.primary.400') },
+              code: { color: theme('colors.neutral.100') },
             },
             'h1,h2,h3,h4,h5,h6': {
               color: theme('colors.gray.100'),
