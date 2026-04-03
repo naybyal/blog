@@ -24,7 +24,7 @@ export default function Home({ posts }) {
             const { slug, date, title, summary, tags } = post
             return (
               <li key={slug} className="py-12">
-                <article className="transition-all duration-300 hover:-translate-y-1 group">
+                <article className="group transition-all duration-300 hover:-translate-y-1">
                   <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                     <dl>
                       <dt className="sr-only">Published on</dt>
@@ -56,7 +56,7 @@ export default function Home({ posts }) {
                       <div className="text-base font-medium leading-6">
                         <Link
                           href={`/blog/${slug}`}
-                          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 group-hover:underline"
+                          className="text-primary-500 transition-colors duration-300 hover:text-primary-600 group-hover:underline dark:hover:text-primary-400"
                           aria-label={`Read more: "${title}"`}
                         >
                           Read more &rarr;

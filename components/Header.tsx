@@ -32,10 +32,10 @@ const Header = () => {
             <Link
               key={link.title}
               href={link.href}
-              className="hidden font-medium text-gray-900 dark:text-gray-100 sm:block relative group"
+              className="group relative hidden font-medium text-gray-900 dark:text-gray-100 sm:block"
             >
               <span className="relative z-10">{link.title}</span>
-              <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-primary-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              <span className="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-primary-500 transition-transform duration-300 group-hover:scale-x-100"></span>
             </Link>
           ))}
         <SearchButton />
